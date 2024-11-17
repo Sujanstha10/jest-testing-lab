@@ -44,7 +44,7 @@ npm install
 npm test
 ```
 
-🧪 Features
+# 🧪 Features
 
 Pre-configured Jest setup for seamless testing.
 Example test cases for RESTful APIs to help you get started.
