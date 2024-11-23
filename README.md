@@ -46,8 +46,6 @@ npm test
 
 # 🧪 Features
 
-Pre-configured Jest setup for seamless testing.
-Example test cases for RESTful APIs to help you get started.
-Mocking utilities to simulate database interactions and third-party services for isolated testing.
-
-
+- Pre-configured Jest setup for seamless testing.
+- Example test cases for RESTful APIs to help you get started.
+- Mocking utilities to simulate database interactions and third-party services for isolated testing.
