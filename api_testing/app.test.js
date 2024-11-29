@@ -1,9 +1,9 @@
 const request = require("supertest");
-const app = require("./app.js");
+const app = require("./app.js").default;
 
 describe("POST /users", () => {
   describe("when username and password is given", () => {
-    test("should respond with a 200 status code", async () => {
+    it("should respond with a 200 status code", async () => {
       const response = await request(app).post("/users").send({
         username: "username",
         password: "password",
