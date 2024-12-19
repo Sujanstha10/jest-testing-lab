@@ -1,26 +1,30 @@
-const mysql = require("mysql2");
+// import mysql from 'mysql2'
+const mysql = require('mysql2')
+
 
 const connection = mysql.createPool({
-  // connectionLimit : 10,
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "mydb",
-});
-async function getUser(username) {
-  const [row] = await connection
-    .promise()
-    .query(`select * from users where username = ?`, [username]);
-  return row[0];
-}
-async function createUser(username, password) {
-  const insertId = await connection
-    .promise()
-    .query(`insert into users (username,password),values(?,?) `, [
-      username,
-      password,
-    ]);
-  return insertId;
+  host     : 'localhost',
+  user     : 'root',
+  database : 'some_database'
+})
+
+export async function getUser(username) {
+  const [rows] = await connection.promise().query(
+    `SELECT * 
+      FROM users 
+      WHERE username = ?`,
+    [username]
+  )
+
+  return rows[0]
 }
 
-module.exports = { getUser, createUser };
+export async function createUser(username, password) {
+  const { insertId } = await connection.promise().query(
+    `INSERT INTO users (username, password) 
+      VALUES (?, ?)`,
+    [username, password]
+  )
+
+  return insertId
+}
